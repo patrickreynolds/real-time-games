@@ -2,6 +2,7 @@ Pusher.url = ENV['PUSHER_URL']
 
 get '/users/:username/games/jsracer' do
 	@username = current_user
+	@app_key = ENV['APP_KEY']
 	erb :jsracer
 end
 
