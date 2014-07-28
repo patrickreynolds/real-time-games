@@ -5,8 +5,10 @@ get '/logout' do
 	redirect '/'
 end
 
-get '/:username' do
-	redirect "/#{params[:user]}"
+get '/users/:username' do
+	@user = current_user
+	@username = @user.username
+	erb :profile
 end
 
 post '/users/create' do
@@ -19,7 +21,7 @@ post '/users/create' do
 	# TODO: This will run validations via the User model
 	if user.valid?
 		start_session user
-		redirect "/#{user.username}"
+		redirect "/users/#{user.username}"
 	else 
 		redirect "/"
 	end
@@ -30,7 +32,7 @@ post '/users/login' do
 
 	if user
 		start_session user
-		redirect "/#{user.username}"
+		redirect "/users/#{user.username}"
 	else 
 		# TODO: Pass error that they were unable to login, no account found
 		redirect '/'
