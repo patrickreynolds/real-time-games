@@ -13,13 +13,13 @@ end
 
 post '/users/create' do
 	# "POST: /:user"
-	user = User.create(	email: params[:email],
-									username: params[:username],
-									password: params[:password])
+	user = User.create(params)
 	# TODO: Dry up with helper method
-
+	p "User Details: "
+	p user
 	# TODO: This will run validations via the User model
 	if user.valid?
+		puts "User is valid, redirecting to /users/#{user.username}"
 		start_session user
 		redirect "/users/#{user.username}"
 	else 
