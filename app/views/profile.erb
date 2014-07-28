@@ -1,5 +1,7 @@
 <script type="text/javascript">
-	$.get( "<%= @username %>/games/jsracer" );
+	$('#jsracer').on('click', function(){
+		$.get( "<%= @username %>/games/jsracer" );
+	});
 </script>
 
 <div class="container">
