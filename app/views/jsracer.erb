@@ -189,7 +189,7 @@ function init() {
   //   }
   // };
 
-  var pusher = new Pusher("<%= @app_key%>");
+  var pusher = new Pusher(ENV['PUSHER_KEY']);
   var channel = pusher.subscribe("jsracer-<%= @username %>");
   
   channel.bind('move_player_1', function(data) {
