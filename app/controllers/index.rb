@@ -1,4 +1,9 @@
-
 get '/' do
-	erb :index
+	@user = logged_in?
+	if @user
+		@username = @user.username
+		redirect "/users/#{@username}"
+	else
+		erb :index
+	end
 end
