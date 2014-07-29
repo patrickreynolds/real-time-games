@@ -5,12 +5,36 @@ var JSRacer = {
 
 	start: function(){
 		this.bindEvents();
+
 	},
 	bindEvents: function(){
 		this.view.bindEvents();
+
+	},
+	bindPusherEvents: function(channel){
+		// Pusher Channels
+		channel.bind('move_player_1', function(data) {
+		 	var player1Event = document.createEvent('Event');
+		 	player1Event.keyCode = 81;
+		 	player1Event.initEvent('remoteMovePlayer', true, true);
+		 	document.dispatchEvent(player1Event);
+		});
+
+		channel.bind('move_player_2', function(data) {
+		 	var player2event = document.createEvent('Event');
+		 	player2event.keyCode = 80;
+		 	player2event.initEvent('remoteMovePlayer', true, true);
+		 	document.dispatchEvent(player2event);
+		});
 	},
 	startRace: function(event){
 		event.preventDefault();
+
+		var pusher = new Pusher('4f0fd90ff9f08ea1d061');
+		var channelId = "jsracer-" + $('#game-container').data('gameroom')
+		var channel = pusher.subscribe(channelId);
+		JSRacer.bindPusherEvents(channel);
+
 		var raceInfo = this.raceInfo();
 		JSRacer.race = new Race(raceInfo);
 		JSRacer.view.renderRace(JSRacer.race);
