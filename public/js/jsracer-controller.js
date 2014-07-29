@@ -35,8 +35,7 @@ var JSRacer = {
 		var channel = pusher.subscribe(channelId);
 		JSRacer.bindPusherEvents(channel);
 
-		var raceInfo = this.raceInfo();
-		JSRacer.race = new Race(raceInfo);
+		JSRacer.race = new Race(this.raceInfo());
 		JSRacer.view.renderRace(JSRacer.race);
 		document.addEventListener('keyup', JSRacer.movePlayer);
 		document.addEventListener('remoteMovePlayer', JSRacer.movePlayer);
