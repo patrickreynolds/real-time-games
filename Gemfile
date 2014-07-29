@@ -31,4 +31,5 @@ group :test, :development do
   gem 'faker'
   gem 'shotgun'
   gem 'pry'
+  gem 'dotenv'
 end
