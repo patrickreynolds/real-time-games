@@ -1,10 +1,18 @@
-<script type="text/javascript">
-	// $('#jsracer').on('click', function(){
-	// 	$.get( "<%= @username %>/games/jsracer" );
-	// });
-</script>
+<div class="well">
+<h1 class="text-center">Welcome <%= @username %></h1>
+<div class="row">
+		<a href="/users/<%= @username %>/games/jsracer">
+			<div id="jsracer" class="col-sm-6">
+				<img src="/images/jsracer-logo.jpg" alt="Start JS-Racer" class="img-responsive img-circle" alt="Responsive image">
+				<h2 class="text-center">JS Racer</h2>
+			</div>
+		</a>
 
-<div class="container">
-	<h1>Welcome <%= @username %></h1>
-	<a href="/users/<%= @username %>/games/jsracer"><button id="jsracer">JS Racer</button></a>
+		<a href="/users/<%= @username %>/games/simon-says">
+			<div id="simon-says" class="col-sm-6">
+				<img src="/images/simon-says-logo.jpg" alt="Start Simon Says" class="img-responsive img-circle" alt="Responsive image">
+				<h2 class="text-center">Simon Says</h2>
+			</div>
+		</a>
+	</div>
 </div>
