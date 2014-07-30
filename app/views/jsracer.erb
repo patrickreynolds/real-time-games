@@ -1,8 +1,11 @@
-<div id="game-container" data-gameroom="<%= @username %>">
+<div id="game-container" data-gameroom="<%= @username %>" class="container">
+	<h1 class="text-center">JS Racer</h1>
 	<div class="game-info">
 	<br />
 		<form role="form" id="game-info-form" class="col-xs-3">
 			<div class="form-group">
+				<!-- <h4>Track Types</h4> -->
+				<label for="track-types">Track Type</label>
 				<select id="track-types" class="form-control">
 				  <option value="drag">Drag</option>
 				  <option value="circle">Circle</option>
@@ -30,12 +33,14 @@
 				  <option value="blue">Blue</option>
 				</select>
 		  </div>
-		  <input type="submit" id="submit-game-info" class="btn btn-default" value="Start Game!">
+		  <input type="submit" id="submit-game-info" class="btn btn-primary" value="Start Game!">
 		</form>
 	</div>
-
-	<canvas id="track" width="800" height="800"></canvas>
+	<div class="col-xs-offset-3">
+		<canvas id="track" width="800" height="800"></canvas>
+	</div>
 </div>
+
 <script type="text/javascript" src="/js/jsracer-model.js"></script>
 <script type="text/javascript" src="/js/jsracer-view.js"></script>
 <script type="text/javascript" src="/js/jsracer-controller.js"></script>

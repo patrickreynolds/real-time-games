@@ -5,7 +5,7 @@ var JSRacer = {
 
 	start: function(){
 		this.bindEvents();
-
+		this.view.renderTrack();
 	},
 	bindEvents: function(){
 		this.view.bindEvents();
