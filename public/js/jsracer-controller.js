@@ -43,10 +43,10 @@ var JSRacer = {
     //reak into own function. bindRaceListeners
     document.addEventListener('keyup', JSRacer.movePlayer)
     document.addEventListener('remoteMovePlayer', JSRacer.movePlayer)
-	},
-	movePlayer: function(event){
-		switch(event.keyCode) {
-			case 81:
+  },
+  movePlayer: function(event){
+    switch(event.keyCode) {
+      case 81:
         var racer = JSRacer.race.racers[0]
         //imagine a hash of racers
         // racers[keyCode] would return the racer pertaining to a specific keyCOde
@@ -58,11 +58,11 @@ var JSRacer = {
         
         JSRacer.view.renderRace(JSRacer.race)
         break
-			case 80:
+      case 80:
         var racer = JSRacer.race.racers[1]
         racer.updatePosition()
         if (racer.position > (JSRacer.view.track.length - racer.size))
-					JSRacer.complete(racer)
+          JSRacer.complete(racer)
         JSRacer.view.renderRace(JSRacer.race)
         break
     }
